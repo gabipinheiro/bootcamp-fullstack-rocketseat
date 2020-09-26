@@ -1,0 +1,89 @@
+<!-- A partir do seguinte vetor:
+var nomes = ["Diego", "Gabriel", "Lucas"];
+Preencha uma lista (<ul>) no HTML com os itens da seguinte forma:
+● Diego
+● Gabriel
+● Lucas -->
+
+<!-- Seguindo o resultado do exercício anterior adicione um input em tela e um botão como a seguir:
+<input type="text" name="nome">
+<button onClick="adicionar()">Adicionar</button>
+Ao clicar no botão, a função adicionar() deve ser disparada adicionando um novo item a lista de
+nomes baseado no nome preenchido no input e renderizando o novo item em tela juntos aos
+demais itens anteriores. Além disso, o conteúdo do input deve ser apagado após o clique. -->
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>modulo 2 - exercicio 1 - parte 2</title>
+  </head>
+  <body>
+    <input type="text" name="nome" id="inputAdd" />
+    <button onClick="adicionar()" id="buttonAdd">Adicionar</button>
+
+    <ul></ul>
+
+    <script>
+      let inputNameElement = document.querySelector('input#inputAdd');
+      let buttonAddNameElement = document.querySelector('button#buttonAdd');
+      var newName = '';
+      var ul = document.querySelector('ul');
+      //var names = ['Diego', 'Gabriel', 'Lucas'];
+      var names = JSON.parse(localStorage.getItem('listNames'));
+
+      function renderList() {
+        //      cleanList();
+        ul.innerHTML = '';
+        for (let i = 0; i < names.length; i++) {
+          let li = document.createElement('li');
+          let textNameNode = document.createTextNode(names[i]);
+          li.appendChild(textNameNode);
+
+          let removeButton = document.createElement('button');
+          let textButtonNode = document.createTextNode('Excluir');
+          removeButton.appendChild(textButtonNode);
+          removeButton.setAttribute('id', i);
+
+          let item = document.createElement('span');
+          item.setAttribute('id', i);
+
+          item.appendChild(li);
+          item.appendChild(removeButton);
+
+          removeButton.setAttribute('onclick', 'removeName(' + i + ')');
+
+          item.style.flexDirection = 'row';
+          item.style.display = 'flex';
+          item.style.padding = '2';
+          removeButton.style.marginLeft = '10';
+
+          ul.appendChild(item);
+          //ul.appendChild(removeButton);
+        }
+        saveToStorage();
+      }
+
+      renderList();
+
+      function adicionar() {
+        newName = inputNameElement.value;
+        names.push(newName);
+        renderList();
+        inputNameElement.value = '';
+      }
+
+      function removeName(i) {
+        console.log('entrou no removeName, pos: ', i);
+        console.log('names teste: ', names);
+        names.splice(i, 1);
+        renderList();
+      }
+
+      addEventListener('click', removeName);
+
+      function saveToStorage() {
+        localStorage.setItem('listNames', JSON.stringify(names));
+      }
+    </script>
+  </body>
+</html>

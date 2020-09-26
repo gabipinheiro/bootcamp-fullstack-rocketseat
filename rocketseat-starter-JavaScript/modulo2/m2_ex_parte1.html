@@ -1,0 +1,54 @@
+<!-- Crie um botão que ao ser clicado cria um novo elemento em tela com a 
+forma de um quadrado vermelho com 100px de altura e largura. 
+Sempre que o botão for clicado um novo quadrado deve aparecer na tela -->
+
+<!-- Utilizando o resultado do primeiro desafio, toda vez que o usuário passar o mouse por cima de
+algum quadrado troque sua cor para uma cor aleatória gerada pela função abaixo: -->
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>modulo 2 - exercicio 1 - parte 1</title>
+  </head>
+  <body>
+    <button id="buttonNewBox">New Box</button>
+    <div class="app"></div>
+
+    <script>
+      var boxContainerElement = document.querySelector('.app');
+      var buttonBoxElement = document.getElementById('buttonNewBox');
+      var countBoxes = 0;
+
+      function addBox(event) {
+        var boxElement = document.createElement('div');
+        countBoxes += 1;
+
+        let att = document.createAttribute('id');
+        att.value = String(countBoxes);
+        boxElement.setAttributeNode(att);
+
+        boxElement.style.width = 100;
+        boxElement.style.height = 100;
+        boxElement.style.backgroundColor = '#F00';
+        boxElement.style.margin = 10;
+
+        boxContainerElement.appendChild(boxElement);
+
+        boxElement.addEventListener('mouseover', () => {
+          var newColor = getRandomColor();
+          boxElement.style.backgroundColor = newColor;
+        });
+      }
+      buttonBoxElement.addEventListener('click', addBox);
+
+      function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "gitlistuserrepos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabipinheiro/bootcamps-fullstack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabipinheiro/bootcamps-fullstack/issues"
+  },
+  "homepage": "https://github.com/gabipinheiro/bootcamps-fullstack#readme",
+  "dependencies": {
+    "materialize-css": "^1.0.0-rc.2"
+  }
+}
