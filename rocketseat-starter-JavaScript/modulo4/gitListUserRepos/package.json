@@ -18,5 +18,6 @@
   "homepage": "https://github.com/gabipinheiro/bootcamps-fullstack#readme",
   "dependencies": {
     "materialize-css": "^1.0.0-rc.2"
-  }
+  },
+  "type": "module"
 }

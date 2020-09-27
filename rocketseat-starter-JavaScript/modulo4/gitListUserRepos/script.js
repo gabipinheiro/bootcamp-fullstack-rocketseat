@@ -3,9 +3,20 @@ let ul = document.querySelector('ul#list');
 
 function createLi(data) {
   let li = document.createElement('li');
-  let liContent = document.createTextNode(data);
-  li.appendChild(liContent);
+  let linkElement = document.createElement('a');
+  let linkContent = document.createTextNode(data);
+  linkElement.setAttribute('href', 'url');
+  linkElement.appendChild(linkContent);
+
+  li.appendChild(linkElement);
   ul.appendChild(li);
+
+  linkElement.addEventListener('click', () => {
+    event.preventDefault();
+    console.log('entrou. data: ', data);
+    window.open(data, '_blank');
+    //window.location.href = data;
+  });
 }
 
 function searchGitApi() {
@@ -41,11 +52,10 @@ function renderError(err) {
 }
 
 function renderList(result) {
-  console.log('resultado: ', result);
   ul.innerHTML = '';
   let dataArray = [...result];
 
   dataArray.map((repo) => {
-    createLi(repo.url);
+    createLi(repo.html_url);
   });
 }
