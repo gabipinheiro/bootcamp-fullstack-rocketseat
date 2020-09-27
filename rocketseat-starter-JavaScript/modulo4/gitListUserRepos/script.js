@@ -13,7 +13,6 @@ function createLi(data) {
 
   linkElement.addEventListener('click', () => {
     event.preventDefault();
-    console.log('entrou. data: ', data);
     window.open(data, '_blank');
     //window.location.href = data;
   });
