@@ -27,6 +27,19 @@ Dica: Quando o usuário não existe, a requisição irá cair no .catch com cód
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="node_modules/materialize-css/dist/css/materialize.min.css"
+      media="screen,projection"
+    />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
@@ -34,12 +47,17 @@ Dica: Quando o usuário não existe, a requisição irá cair no .catch com cód
     </title>
   </head>
   <body>
-    <div>
+    <div class="container">
+      <div class="search"></div>
       <input type="text" id="user" autofocus />
+    </div>
       <button onclick="searchGitApi()" id="gitUser">Adicionar</button>
       <span id="showResult"></span>
       <ul id="list"></ul>
     </div>
-    <script src="./script.js"></script>
+    <script
+      src="./script.js"
+      src="node_modules/materialize-css/dist/js/materialize.min.js"
+    ></script>
   </body>
 </html>
