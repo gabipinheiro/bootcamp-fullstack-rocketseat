@@ -1,3 +1,3 @@
-## Bootcamp Fullstack
+## Bootcamp Fullstack Rocketseat
 
-Repositório para guardar os exercícios dos bootcamps que participei.
+Repositório para guardar os exercícios feitos no bootcamp da Rocketseat.
